@@ -16,6 +16,7 @@ bemestaranimal\project\src\main\java
     |     └── ProdutoController.java
     ├── dto/
     |     ├── AdocaoDTO                     ok
+    |     ├── PessoaDTO                     ok
     |     ├── AnimalDTO                     ok
     ├── entity/                          ← todas as entidades
     │     ├── Adocao.java                     ok
@@ -40,26 +41,26 @@ bemestaranimal\project\src\main\java
     │           └── TipoPessoa.java                     ok
     │
     ├── repository/                      ← interfaces JPA
-    │     ├── AdocaoRepository.java                     ok
+    │     ├── AdocaoRepository.java                    ok
     │     ├── AgendamentoRepository.java
-    │     ├── AnimalRepository.java                     ok
+    │     ├── AnimalRepository.java                    ok
     │     ├── DoacaoRepository.java 
     │     ├── FornecedorRepository.java
     │     ├── HistoricoClinicoRepository.java
     │     ├── MovimentoEstoqueRepository.java
-    │     ├── PessoaRepository.java                     
+    │     ├── PessoaRepository.java                    ok                  
     │     ├── ProdutoRepository.java
     │     └── VoluntarioRepository.java
     │
     └── service/                         ← regra de negócio
           ├── AdocaoService.java                      ok
           ├── AgendamentoService.java
-          ├── AnimalService.java                     ok
+          ├── AnimalService.java                      ok
           ├── DoacaoService.java
           ├── EstoqueService.java
-          ├──PessoaService.java                     
+          ├──PessoaService.java                       ok                 
           └── impl
-              ├── AnimalServiceImpl                      ok
+              ├── AnimalServiceImpl                   ok
               └── EstoqueServiceImpl
 
                
