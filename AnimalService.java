@@ -1,25 +1,14 @@
-package com.example.bemestaranimal.service;
+package com.example.petcare.service;
 
-import com.example.bemestaranimal.entity.Animal;
-import com.example.bemestaranimal.repository.AnimalRepository;
+import com.example.petcare.model.animais.Animal;
+import com.example.petcare.repository.AnimalRepositoryArray;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class AnimalService {
+    private AnimalRepositoryArray repo = new AnimalRepositoryArray();
 
-    private final AnimalRepository repository;
-
-    public AnimalService(AnimalRepository repository) {
-        this.repository = repository;
-    }
-
-    public List<Animal> listar() {
-        return repository.findAll();
-    }
-
-    public Animal salvar(Animal animal) {
-        return repository.save(animal);
-    }
+    public void cadastrar(Animal a) { repo.salvar(a); }
+    public Animal buscar(Long id) { return repo.buscarPorId(id); }
 }
+
