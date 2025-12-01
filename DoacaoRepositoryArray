@@ -1,0 +1,12 @@
+package com.example.petcare.repository;
+
+import com.example.petcare.model.transacoes.Doacao;
+
+public class DoacaoRepositoryArray {
+    private Doacao[] doacoes = new Doacao[50];
+    private int index = 0;
+
+    public void salvar(Doacao d) {
+        doacoes[index++] = d;
+    }
+}
