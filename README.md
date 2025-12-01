@@ -42,8 +42,10 @@ organização dos arquivos:
               │                        ├── DoacaoService.java
               │                        └── ProdutoService.java
               └──resources/
-                        └── static/
-                              ├── css/
-                              │     └── style.css
-                              ├── index.html
-                              └── script.js
+                        ├── static/
+                        │      ├── css/
+                        │      │     └── style.css
+                        │      ├── index.html
+                        │      └── script.js
+                        │  
+                        └── application.properties
