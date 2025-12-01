@@ -1,43 +1,44 @@
-package com.example.bemestaranimal.controller;
+package com.example.petcare.controller;
 
-import com.example.bemestaranimal.dto.AdocaoDTO;
-import com.example.bemestaranimal.entity.Adocao;
-import com.example.bemestaranimal.service.AdocaoService;
+import com.example.petcare.model.transacoes.Adocao;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/adocoes")
 public class AdocaoController {
 
-    private final AdocaoService adocaoService;
+    private List<Adocao> adocoes = new ArrayList<>();
 
-    public AdocaoController(AdocaoService adocaoService) {
-        this.adocaoService = adocaoService;
+    @PostMapping("/registrar")
+    public Adocao registrar(@RequestBody Adocao adocao) {
+        adocoes.add(adocao);
+        return adocao;
     }
 
-    // Listar todas as adoções
     @GetMapping
-    public List<AdocaoDTO> listar() {
-        return adocaoService.listarDTO();
+    public List<Adocao> listar() {
+        return adocoes;
     }
 
-    // Criar nova adoção
-    @PostMapping
-    public Adocao criar(@RequestBody Adocao adocao) {
-        return adocaoService.salvar(adocao);
+    @GetMapping("/{id}")
+    public Adocao buscar(@PathVariable Long id) {
+        return adocoes.stream()
+                .filter(a -> a.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
-    // Aprovar adoção
-    @PutMapping("/{id}/aprovar")
-    public Adocao aprovar(@PathVariable Long id) {
-        return adocaoService.aprovar(id);
-    }
-
-    // Cancelar adoção
-    @PutMapping("/{id}/cancelar")
-    public Adocao cancelar(@PathVariable Long id) {
-        return adocaoService.cancelar(id);
+    @GetMapping("/certificado/{id}")
+    public String certificado(@PathVariable Long id) {
+        return adocoes.stream()
+                .filter(a -> a.getId().equals(id))
+                .map(Adocao::gerarCertificado)
+                .findFirst()
+                .orElse("Adoção não encontrada.");
     }
 }
+
+
