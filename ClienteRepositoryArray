@@ -1,0 +1,18 @@
+package com.example.petcare.repository;
+
+import com.example.petcare.model.pessoas.Cliente;
+
+public class ClienteRepositoryArray {
+    private Cliente[] clientes = new Cliente[50];
+    private int index = 0;
+
+    public void salvar(Cliente c) {
+        clientes[index++] = c;
+    }
+
+    public Cliente buscarPorId(Long id) {
+        for (Cliente c : clientes)
+            if (c != null && c.getId() == id) return c;
+        return null;
+    }
+}
